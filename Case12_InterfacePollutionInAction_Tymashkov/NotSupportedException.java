@@ -1,4 +1,4 @@
-package com.globallogic.unified.eight.cases.case12;
+package Case12_InterfacePollutionInAction_Tymashkov;
 
 public class NotSupportedException extends RuntimeException {
 }

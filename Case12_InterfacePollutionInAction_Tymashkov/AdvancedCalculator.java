@@ -1,6 +1,7 @@
-package com.globallogic.unified.eight.cases.case12;
+package Case12_InterfacePollutionInAction_Tymashkov;
 
-public class AdvancedCalculator implements Calculator {
+public class AdvancedCalculator implements AddingCalculator, SubtractingCalculator, MultiplyingCalculator,
+        DividingCalculator, PoweringCalculator, SquarerootringCalculator {
     @Override
     public int add(int num1, int num2) {
         return num1 + num2;

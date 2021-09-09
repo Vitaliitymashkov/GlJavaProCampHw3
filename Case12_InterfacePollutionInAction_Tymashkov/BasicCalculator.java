@@ -1,6 +1,7 @@
-package com.globallogic.unified.eight.cases.case12;
+package Case12_InterfacePollutionInAction_Tymashkov;
 
-public class BasicCalculator implements Calculator{
+public class BasicCalculator implements AddingCalculator, SubtractingCalculator, MultiplyingCalculator,
+        DividingCalculator {
 
     @Override
     public int add(int num1, int num2) {
@@ -19,15 +20,13 @@ public class BasicCalculator implements Calculator{
 
     @Override
     public double divide(int num1, int num2) {
-        return (double)num1 / (double)num2;
+        return (double) num1 / (double) num2;
     }
 
-    @Override
     public double power(double num, double power) {
         throw new NotSupportedException();
     }
 
-    @Override
     public double squareRoot(double num) {
         throw new NotSupportedException();
     }
