@@ -5,7 +5,7 @@ public class Restaurant {
 
     public Restaurant(String name){
         this.name = name;
-        System.out.printf("Restaurant '%s' opened in your distict!\n", name);
+        System.out.printf("Restaurant '%s' opened in your district!\n", name);
     }
 
     public void cook(Heating heatingAppliance, String item) {
