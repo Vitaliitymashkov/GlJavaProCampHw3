@@ -1,10 +1,12 @@
-package com.globallogic.training.duck;
+package hw2_patterns_Tymashkov.com.globallogic.training.duck;
 
+import java.util.HashMap;
+import java.util.Map;
 
-import com.globallogic.training.duck.state.StandingState;
-import com.globallogic.training.duck.state.State;
+import hw2_patterns_Tymashkov.com.globallogic.training.IDuck;
+import hw2_patterns_Tymashkov.com.globallogic.training.StandingState;
 
-public class Duck implements Cloneable{
+public class Duck implements Cloneable, IDuck {
     private static long duckIdIncrement = 0;
     private long duckId;
     private int age;
@@ -14,6 +16,8 @@ public class Duck implements Cloneable{
     private double wingsLength;
 
     private State state = new StandingState();
+
+    private Map<String, String> innerProperties = new HashMap<>();
 
     public State getState() {
         return state;
@@ -63,6 +67,31 @@ public class Duck implements Cloneable{
         this.wingsLength = wingsLength;
     }
 
+    public void setProperty(String name, String value) {
+        if (null == name) {
+            return;
+        }
+        innerProperties.put(name, value);
+    }
+
+    public String getProperty(String name) {
+        if (null == name || !innerProperties.containsKey(name)) {
+            return "";
+        }
+        return innerProperties.get(name);
+    }
+
+    public void removeProperty(String name) {
+        if (null == name || !innerProperties.containsKey(name)) {
+            return;
+        }
+        innerProperties.remove(name);
+    }
+
+    public void removeProperties() {
+        innerProperties.clear();
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -87,7 +116,7 @@ public class Duck implements Cloneable{
         this.duckId = duckId;
     }
 
-    public Duck(Duck sourceDuck){
+    public Duck(Duck sourceDuck) {
         this.duckId = sourceDuck.duckId;
         this.age = sourceDuck.age;
         this.color = sourceDuck.color;
@@ -98,7 +127,7 @@ public class Duck implements Cloneable{
 
     @Override
     public Duck clone() throws CloneNotSupportedException {
-         return (Duck)super.clone();
+        return (Duck) super.clone();
     }
 
     @Override
@@ -109,6 +138,9 @@ public class Duck implements Cloneable{
                 ", color='" + color + '\'' +
                 ", weight=" + weight +
                 ", wingsLength=" + wingsLength +
-                ", state=" + state;
+                ", state=" + state.toString() +
+                "{" +
+                "innerProperties=" + innerProperties +
+                '}';
     }
 }

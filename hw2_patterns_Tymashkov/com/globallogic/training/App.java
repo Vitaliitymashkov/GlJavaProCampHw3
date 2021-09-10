@@ -1,13 +1,7 @@
-package com.globallogic.training;
+package hw2_patterns_Tymashkov.com.globallogic.training;
 
-import com.globallogic.training.duck.Duck;
-import com.globallogic.training.duck.builder.DuckBuilder;
-import com.globallogic.training.duck.decorator.ChainletDuckDecorator;
-import com.globallogic.training.duck.decorator.TagDuckDecorator;
-import com.globallogic.training.duck.state.FlyingState;
-import com.globallogic.training.duck.state.RunningState;
-import com.globallogic.training.duck.state.SleepingState;
-import com.globallogic.training.duck.state.WalkingState;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.Duck;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.builder.DuckBuilder;
 
 import java.util.*;
 
@@ -85,7 +79,6 @@ public class App {
 
             //Case #13 Error change state from Flying -> Sleeping
             case 13: {
-
                 Duck duck = new DuckBuilder()
                         .setAge(10)
                         .setName("Scrooge McDuck")
@@ -117,8 +110,17 @@ public class App {
                 System.out.println(new TagDuckDecorator(new ChainletDuckDecorator(new ChainletDuckDecorator(new TagDuckDecorator(duck)))).toString());
                 break;
             }
+            //
+            case 22: {
+                Duck duck = new Duck();
+                duck.setProperty("Name", "Dark Fate");
+                duck.setProperty("Birth date", "August 23, 2021");
+                duck.setProperty("Distributed by", "Globallogic");
 
+                System.out.println("Duck: " + duck);
+
+                break;
+            }
         }
-
     }
 }

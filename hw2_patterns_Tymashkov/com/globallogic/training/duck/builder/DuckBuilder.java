@@ -1,7 +1,7 @@
-package com.globallogic.training.duck.builder;
+package hw2_patterns_Tymashkov.com.globallogic.training.duck.builder;
 
 
-import com.globallogic.training.duck.Duck;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.Duck;
 
 public class DuckBuilder {
     private int age;
