@@ -8,9 +8,9 @@ public class Restaurant {
         System.out.printf("Restaurant '%s' opened in your district!\n", name);
     }
 
-    public void cook(Heating heatingAppliance, String item) {
-        heatingAppliance.switchOn();
-        heatingAppliance.bake(item);
-        heatingAppliance.switchOff();
+    public void cook(Oven OvenAppliance, String item) {
+        OvenAppliance.switchOn();
+        OvenAppliance.bake(item);
+        OvenAppliance.switchOff();
     }
 }
