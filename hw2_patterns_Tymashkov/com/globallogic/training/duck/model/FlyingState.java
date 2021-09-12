@@ -1,30 +1,26 @@
-package hw2_patterns_Tymashkov.com.globallogic.training;
+package hw2_patterns_Tymashkov.com.globallogic.training.duck.model;
 
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.Duck;
-import hw2_patterns_Tymashkov.com.globallogic.training.duck.State;
 
-public class StandingState implements State {
+public class FlyingState implements State {
 
-    private final String textState = "Standing";
+    private final String textState = "Flying";
 
     @Override
     public void doAction(Duck duck) {
         if (duck.getState().equals(new SwimmingState())
-                || duck.getState().equals(new WalkingState())
-                || duck.getState().equals(new SleepingState())
-                || duck.getState().equals(new EatingState())) {
+                || duck.getState().equals(new RunningState())) {
             duck.setState(this);
         } else {
-            throw new IllegalStateException("To Stand previous state should be Swimming or Walking or Sleeping or Eating");
+            throw new IllegalStateException("To Fly previous state should be Swimming or Running");
         }
     }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        StandingState that = (StandingState) o;
+        FlyingState that = (FlyingState) o;
 
         return textState != null ? textState.equals(that.textState) : that.textState == null;
     }

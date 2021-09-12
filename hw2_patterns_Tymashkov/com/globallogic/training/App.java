@@ -2,6 +2,12 @@ package hw2_patterns_Tymashkov.com.globallogic.training;
 
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.Duck;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.builder.DuckBuilder;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.duckDecorator.ChainletDuckDecorator;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.duckDecorator.TagDuckDecorator;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.FlyingState;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.RunningState;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.SleepingState;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.WalkingState;
 
 import java.util.*;
 
@@ -107,7 +113,7 @@ public class App {
                         .setName("Scrooge McDuck")
                         .build();
 
-                System.out.println(new TagDuckDecorator(new ChainletDuckDecorator(new ChainletDuckDecorator(new TagDuckDecorator(duck)))).toString());
+                System.out.println(new TagDuckDecorator(new ChainletDuckDecorator(new ChainletDuckDecorator(new TagDuckDecorator(duck)))));
                 break;
             }
             //

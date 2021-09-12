@@ -1,7 +1,6 @@
-package hw2_patterns_Tymashkov.com.globallogic.training;
+package hw2_patterns_Tymashkov.com.globallogic.training.duck.model;
 
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.Duck;
-import hw2_patterns_Tymashkov.com.globallogic.training.duck.State;
 
 public class EatingState implements State {
 

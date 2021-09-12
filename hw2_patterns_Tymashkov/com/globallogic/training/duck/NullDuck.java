@@ -1,8 +1,8 @@
 package hw2_patterns_Tymashkov.com.globallogic.training.duck;
 
-import hw2_patterns_Tymashkov.com.globallogic.training.IDuck;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.Duck;
 
-public class NullDuck implements IDuck {
+public class NullDuck implements Duck {
     public String toString() {
         return "";
     }

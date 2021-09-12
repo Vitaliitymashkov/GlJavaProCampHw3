@@ -3,10 +3,10 @@ package hw2_patterns_Tymashkov.com.globallogic.training.duck;
 import java.util.HashMap;
 import java.util.Map;
 
-import hw2_patterns_Tymashkov.com.globallogic.training.IDuck;
-import hw2_patterns_Tymashkov.com.globallogic.training.StandingState;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.StandingState;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.State;
 
-public class Duck implements Cloneable, IDuck {
+public class Duck implements Cloneable, hw2_patterns_Tymashkov.com.globallogic.training.duck.model.Duck {
     private static long duckIdIncrement = 0;
     private long duckId;
     private int age;
@@ -123,6 +123,8 @@ public class Duck implements Cloneable, IDuck {
         this.name = sourceDuck.name;
         this.weight = sourceDuck.weight;
         this.wingsLength = sourceDuck.wingsLength;
+        this.state = sourceDuck.state;
+        this.innerProperties = sourceDuck.innerProperties;
     }
 
     @Override
