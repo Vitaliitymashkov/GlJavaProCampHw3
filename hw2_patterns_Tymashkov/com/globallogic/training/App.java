@@ -5,6 +5,7 @@ import java.util.Scanner;
 import java.util.stream.Stream;
 
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.Duck;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.NullDuck;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.builder.DuckBuilder;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.duckDecorator.ChainletDecorator;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.duckDecorator.ChainletDuckDecorator;
@@ -169,6 +170,14 @@ public class App {
 
                 System.out.println("Duck: " + duck);
 
+                break;
+            }
+
+            //
+            case 23: {
+                NullDuck duck = new NullDuck();
+                duck.makeSound();
+                System.out.println("Duck of Null: " + duck);
                 break;
             }
         }

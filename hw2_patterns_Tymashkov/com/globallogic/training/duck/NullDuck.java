@@ -1,7 +1,15 @@
 package hw2_patterns_Tymashkov.com.globallogic.training.duck;
 
-public class NullDuck {
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.Bird;
+
+public class NullDuck implements Bird {
+
     public String toString() {
-        return "";
+        return "NullDuck";
+    }
+
+    @Override
+    public void makeSound() {
+        return;
     }
 }
