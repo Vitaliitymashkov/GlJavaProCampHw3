@@ -1,7 +1,15 @@
 package hw2_patterns_Tymashkov.com.globallogic.training.duck.duckDecorator;
 
-public class ChainletDuckDecorator extends hw2_patterns_Tymashkov.com.globallogic.training.duck.Duck {
-    public ChainletDuckDecorator(hw2_patterns_Tymashkov.com.globallogic.training.duck.Duck duck) {
-        super.setName(duck.getName() + " ChainletDuck");
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.Duck;
+
+public class ChainletDuckDecorator extends Duck implements ChainletDecorator{
+
+    public ChainletDuckDecorator(Duck duck) {
+        actionChainlet(duck);
+    }
+
+    @Override
+    public void actionChainlet(Duck duck) {
+        super.setName(duck.getName() + " of ChainletDuck");
     }
 }

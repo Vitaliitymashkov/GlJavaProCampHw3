@@ -1,15 +1,19 @@
 package hw2_patterns_Tymashkov.com.globallogic.training;
 
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.stream.Stream;
+
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.Duck;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.builder.DuckBuilder;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.duckDecorator.ChainletDecorator;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.duckDecorator.ChainletDuckDecorator;
+import hw2_patterns_Tymashkov.com.globallogic.training.duck.duckDecorator.TagDecorator;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.duckDecorator.TagDuckDecorator;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.FlyingState;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.RunningState;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.SleepingState;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.WalkingState;
-
-import java.util.*;
 
 public class App {
 
@@ -116,6 +120,46 @@ public class App {
                 System.out.println(new TagDuckDecorator(new ChainletDuckDecorator(new ChainletDuckDecorator(new TagDuckDecorator(duck)))));
                 break;
             }
+
+            //Case #15 User configurable Chainlet Decorator
+            case 15: {
+                Duck duck1 = new DuckBuilder()
+                        .setAge(77)
+                        .setWeight(77.7)
+                        .setName("Scrooge McDuck Sr.")
+                        .build();
+
+                Duck duck2 = new DuckBuilder()
+                        .setAge(7)
+                        .setWeight(7.77)
+                        .setName("Webby Vanderquack Jr.")
+                        .build();
+
+                ChainletDecorator chainletDecorator = duck -> duck.setName(duck.getName() + " of user configurable chainlet pride");
+
+                Stream<Duck> chainDuck = Arrays.stream(new Duck[]{duck1, duck2});
+                chainDuck.forEach(duck -> {
+                    chainletDecorator.actionChainlet(duck);
+                    System.out.println(duck.getName());
+                });
+                break;
+            }
+
+            //Case #16 User configurable Tag Decorator
+            case 16: {
+                Duck duck = new DuckBuilder()
+                        .setName("Webby Vanderquack Jr.")
+                        .setWeight(7.77)
+                        .setColor("white")
+                        .build();
+
+                TagDecorator tagDecorator = duckDecorator -> System.out.println("New tag duck decorator for " + duckDecorator.getName());
+                tagDecorator.actionTag(duck);
+
+                System.out.println(duck);
+                break;
+            }
+
             //
             case 22: {
                 Duck duck = new Duck();
