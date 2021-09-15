@@ -1,5 +1,5 @@
 # GlobalLogic Java ProCamp 
-![GlobalLogic Education](/assets/gl-education.png)
+![GlobalLogic Education](assets/gl-education.png)
 
 ## How to submit a solution
 1. Create a separate unique folder inside this repository
