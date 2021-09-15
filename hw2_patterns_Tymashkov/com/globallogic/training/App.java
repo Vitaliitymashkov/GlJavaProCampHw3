@@ -36,6 +36,18 @@ public class App {
                 break;
             }
 
+            case 101: {
+                Duck duck = new DuckBuilder()
+                        .setAge(-1)
+                        .setWeight(-1)
+//                        .setColor("yellow")
+                        .setName("Scrooge McDuck")
+                        .build();                   //Exception: Weight or Wings length should be greater that 0
+
+                System.out.println(duck.toString());
+                break;
+            }
+
             //Case #11 Sample Prototype
             case 11: {
                 Duck duck1 = new DuckBuilder()
@@ -164,6 +176,7 @@ public class App {
             //
             case 22: {
                 Duck duck = new Duck();
+                duck.setName("Prop Duck");
                 duck.setProperty("Name", "Dark Fate");
                 duck.setProperty("Birth date", "August 23, 2021");
                 duck.setProperty("Distributed by", "Globallogic");

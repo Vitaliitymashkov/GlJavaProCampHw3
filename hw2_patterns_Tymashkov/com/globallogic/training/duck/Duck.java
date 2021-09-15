@@ -2,12 +2,14 @@ package hw2_patterns_Tymashkov.com.globallogic.training.duck;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.Bird;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.StandingState;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.State;
 
 public class Duck implements Cloneable, Bird {
+    private static final String EMPTY_STRING = "";
     private static long duckIdIncrement = 0;
     private long duckId;
     private int age;
@@ -68,8 +70,13 @@ public class Duck implements Cloneable, Bird {
         this.wingsLength = wingsLength;
     }
 
+    public Duck() {
+        duckIdIncrement++;
+        this.duckId = duckIdIncrement;
+    }
+
     public void setProperty(String name, String value) {
-        if (null == name) {
+        if ( Objects.isNull(name)) {
             return;
         }
         innerProperties.put(name, value);
@@ -77,7 +84,7 @@ public class Duck implements Cloneable, Bird {
 
     public String getProperty(String name) {
         if (null == name || !innerProperties.containsKey(name)) {
-            return "";
+            return EMPTY_STRING;
         }
         return innerProperties.get(name);
     }
@@ -106,11 +113,6 @@ public class Duck implements Cloneable, Bird {
     @Override
     public int hashCode() {
         return (int) (duckId ^ (duckId >>> 32));
-    }
-
-    public Duck() {
-        duckIdIncrement++;
-        this.duckId = duckIdIncrement;
     }
 
     private Duck(long duckId) {
@@ -142,7 +144,7 @@ public class Duck implements Cloneable, Bird {
                 ", weight=" + weight +
                 ", wingsLength=" + wingsLength +
                 ", state=" + state.toString() +
-                "{" +
+                ", {" +
                 "innerProperties=" + innerProperties +
                 '}';
     }

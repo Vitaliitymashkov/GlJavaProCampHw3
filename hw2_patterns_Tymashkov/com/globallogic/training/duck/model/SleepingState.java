@@ -4,7 +4,7 @@ import hw2_patterns_Tymashkov.com.globallogic.training.duck.Duck;
 
 public class SleepingState implements State {
 
-    private final String textState = "Sleeping";
+    private final String TEXT_STATE = "Sleeping";
 
     @Override
     public void doAction(Duck duck) {
@@ -21,16 +21,16 @@ public class SleepingState implements State {
 
         SleepingState that = (SleepingState) o;
 
-        return textState != null ? textState.equals(that.textState) : that.textState == null;
+        return TEXT_STATE != null ? TEXT_STATE.equals(that.TEXT_STATE) : that.TEXT_STATE == null;
     }
 
     @Override
     public int hashCode() {
-        return textState != null ? textState.hashCode() : 0;
+        return TEXT_STATE != null ? TEXT_STATE.hashCode() : 0;
     }
 
     @Override
     public String toString(){
-        return this.textState;
+        return this.TEXT_STATE;
     }
 }
