@@ -1,4 +1,4 @@
-package Case11_SrpGodObject_Tymashkov.thruster;
+package Case11_SrpGodObject_Tymashkov.domain;
 
 import Case11_SrpGodObject_Tymashkov.domain.SpaceStation;
 

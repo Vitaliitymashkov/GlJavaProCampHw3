@@ -1,30 +1,30 @@
 package Case11_SrpGodObject_Tymashkov;
 
 import Case11_SrpGodObject_Tymashkov.domain.SpaceStation;
-import Case11_SrpGodObject_Tymashkov.domain.SpaceStationBuilder;
+import Case11_SrpGodObject_Tymashkov.domain.builder.SpaceStationBuilder;
 
 public class SpaceAdventure {
     public void startSpaceAdventure(){
         SpaceStation spaceStation = SpaceStationBuilder.createSpaceStation();
 
-        spaceStation.FuelTank().loadFuel(10);
-        spaceStation.FuelTank().loadFuel(5);
-        spaceStation.FuelTank().reportFuel();
+        spaceStation.accessFuelTank().load(10);
+        spaceStation.accessFuelTank().load(5);
+        spaceStation.accessFuelTank().report();
 
-        spaceStation.Thruster().activateThrusters(spaceStation);
-        spaceStation.FuelTank().reportFuel(); //Results: Thrusting action successful.
+        spaceStation.accessThruster().activateThrusters(spaceStation);
+        spaceStation.accessFuelTank().report(); //Results: Thrusting action successful.
 
-        spaceStation.Thruster().activateThrusters(spaceStation);
-        spaceStation.FuelTank().reportFuel(); //Results: Thruster Error: Insufficient fuel available.
+        spaceStation.accessThruster().activateThrusters(spaceStation);
+        spaceStation.accessFuelTank().report(); //Results: Thruster Error: Insufficient fuel available.
 
-        spaceStation.runSensors();
+        spaceStation.accessSensor().runSensors();
 
-        spaceStation.SuppliesStore().loadSupplies("Test equipment", 1);
-        spaceStation.SuppliesStore().loadSupplies("Safety equipment", 100);
-        spaceStation.SuppliesStore().reportSupplies();
-        spaceStation.SuppliesStore().exploitSupply("Safety equipment", 90); //Using 90 of Safety equipment from the supply hold.
-        spaceStation.SuppliesStore().reportSupplies();
-        spaceStation.SuppliesStore().exploitSupply("Safety equipment", 90); //Supply Error: Insufficient Safety equipment in the supply hold.
-        spaceStation.SuppliesStore().reportSupplies();
+        spaceStation.accessSuppliesStore().loadSupply("Test equipment", 1);
+        spaceStation.accessSuppliesStore().loadSupply("Safety equipment", 100);
+        spaceStation.accessSuppliesStore().report();
+        spaceStation.accessSuppliesStore().useSupply("Safety equipment", 90); //Using 90 of Safety equipment from the supply hold.
+        spaceStation.accessSuppliesStore().report();
+        spaceStation.accessSuppliesStore().useSupply("Safety equipment", 90); //Supply Error: Insufficient Safety equipment in the supply hold.
+        spaceStation.accessSuppliesStore().report();
     }
 }

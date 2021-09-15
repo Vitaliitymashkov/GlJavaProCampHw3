@@ -1,37 +1,34 @@
 package Case11_SrpGodObject_Tymashkov.domain;
 
-import java.util.HashMap;
-import java.util.Map;
+import Case11_SrpGodObject_Tymashkov.domain.fuelTank.FuelTank;
+import Case11_SrpGodObject_Tymashkov.domain.sersor.Sensor;
+import Case11_SrpGodObject_Tymashkov.domain.supplyStore.SupplyStore;
+import Case11_SrpGodObject_Tymashkov.domain.thruster.Thruster;
 
-import Case11_SrpGodObject_Tymashkov.fuel.FuelTank;
-import Case11_SrpGodObject_Tymashkov.sensor.SensorRunner;
-import Case11_SrpGodObject_Tymashkov.supply.SupplyStore;
-import Case11_SrpGodObject_Tymashkov.thruster.Thruster;
-
-public class SpaceStation implements SensorRunner {
+public class SpaceStation {
 
     private SupplyStore suppliesStore;
     private Thruster thruster;
     private FuelTank fuelTank;
+    private Sensor sensor;
 
     public SpaceStation() {
     }
 
-    public void runSensors() {
-        System.out.println("----- Sensor Action -----");
-        System.out.println("Running sensors!");
-    }
-
-    public FuelTank FuelTank() {
+    public FuelTank accessFuelTank() {
         return fuelTank;
     }
 
-    public Thruster Thruster() {
+    public Thruster accessThruster() {
         return thruster;
     }
 
-    public SupplyStore SuppliesStore() {
+    public SupplyStore accessSuppliesStore() {
         return suppliesStore;
+    }
+
+    public Sensor accessSensor() {
+        return sensor;
     }
 
     public static Builder builder() {
@@ -57,6 +54,10 @@ public class SpaceStation implements SensorRunner {
 
         public Builder withSupplyStore(SupplyStore supplyStore) {
             newSpaceStation.suppliesStore = supplyStore;
+            return this;
+        }
+        public Builder withSensor(Sensor sensor) {
+            newSpaceStation.sensor = sensor;
             return this;
         }
 

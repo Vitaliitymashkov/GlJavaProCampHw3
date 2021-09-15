@@ -1,16 +1,21 @@
-package Case11_SrpGodObject_Tymashkov.supply;
+package Case11_SrpGodObject_Tymashkov.domain.supplyStore;
 
 import java.util.HashMap;
 import java.util.Map;
 
-public class SupplyStore implements SupplyLoader, SupplyReporter, SupplyExploiter {
+import Case11_SrpGodObject_Tymashkov.domain.Reporter;
+import Case11_SrpGodObject_Tymashkov.domain.SupplyExploiter;
+import Case11_SrpGodObject_Tymashkov.domain.SupplyLoader;
+
+public class SupplyStore implements SupplyLoader, Reporter, SupplyExploiter {
     private Map<String, Integer> supplies;
 
     public SupplyStore() {
         this.supplies = new HashMap<>();
     }
 
-    public void loadSupplies(String type, int quantity) {
+    @Override
+    public void loadSupply(String type, int quantity) {
         System.out.println("----- Supply Action -----");
         System.out.printf("Loading %d units of %s in the supply hold.\n", quantity, type);
 
@@ -21,7 +26,8 @@ public class SupplyStore implements SupplyLoader, SupplyReporter, SupplyExploite
         }
     }
 
-    public void reportSupplies() {
+    @Override
+    public void report() {
         System.out.println("----- Supply Report -----");
         if (supplies.keySet().toArray().length != 0) {
             for (String type : supplies.keySet()) {
@@ -32,7 +38,8 @@ public class SupplyStore implements SupplyLoader, SupplyReporter, SupplyExploite
         }
     }
 
-    public void exploitSupply(String type, int quantity) {
+    @Override
+    public void useSupply(String type, int quantity) {
         System.out.println("----- Supply Action -----");
         if (supplies.containsKey(type) && supplies.get(type) > quantity) {
             System.out.printf("Using %d of %s from the supply hold.\n", quantity, type);
