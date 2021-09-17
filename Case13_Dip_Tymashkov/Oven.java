@@ -1,26 +1,9 @@
 package Case13_Dip_Tymashkov;
 
-public class Oven implements Heating {
-    public boolean on;
+public interface Oven {
+    void switchOn();
 
-    @Override
-    public void switchOn() {
-        System.out.println("Lighting the oven's gas!");
-        this.on = true;
-    }
+    void switchOff();
 
-    @Override
-    public void switchOff() {
-        System.out.println("Extinguishing the ovens gas!");
-        this.on = false;
-    }
-
-    @Override
-    public void bake(String item) {
-        if (!this.on){
-            System.out.println("Oven's gas is not turned on.");
-        }  else {
-            System.out.printf("Now baking %s!\n", item);
-        }
-    }
+    void bake(String item);
 }

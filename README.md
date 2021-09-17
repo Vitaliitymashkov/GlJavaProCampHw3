@@ -8,3 +8,6 @@
 4. Commit and push your solution to GitHub
 5. Create a pull request from your created branch to the `master` branch
 6. After the review, your solution will be merged into the `master`
+
+Menthor synch up table
+https://docs.google.com/spreadsheets/d/1yuHK5vFGjfa2oh3vfmXmyMC8L_TPvquy6xObl10TD_M/edit#gid=0
