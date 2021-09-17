@@ -3,6 +3,8 @@ package hw2_patterns_Tymashkov.com.globallogic.training.duck;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
+import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicLong;
 
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.Bird;
 import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.StandingState;
@@ -10,8 +12,8 @@ import hw2_patterns_Tymashkov.com.globallogic.training.duck.model.State;
 
 public class Duck implements Cloneable, Bird {
     private static final String EMPTY_STRING = "";
-    private static long duckIdIncrement = 0;
-    private long duckId;
+    private static final AtomicInteger duckIdIncrement = new AtomicInteger(0);
+    private final AtomicInteger duckId;
     private int age;
     private String color;
     private String name;
@@ -71,7 +73,7 @@ public class Duck implements Cloneable, Bird {
     }
 
     public Duck() {
-        duckIdIncrement++;
+        duckIdIncrement.getAndIncrement();
         this.duckId = duckIdIncrement;
     }
 
@@ -112,10 +114,10 @@ public class Duck implements Cloneable, Bird {
 
     @Override
     public int hashCode() {
-        return (int) (duckId ^ (duckId >>> 32));
-    }
+        return (int) (duckId.get() ^ (duckId.get() >>> 32));
+    } //shift operation ' ' by overly large constant value
 
-    private Duck(long duckId) {
+    private Duck(AtomicInteger duckId) {
         this.duckId = duckId;
     }
 
