@@ -69,7 +69,7 @@ public class DuckBuilder {
                 color = "white";
             }
             duck.setColor(color);
-        } else if (color != null && !color.equals(EMPTY_STRING)) {
+        } else if (color.equals(EMPTY_STRING)) {
             duck.setColor(color);
             switch (color) {
                 case "yellow":
