@@ -109,13 +109,13 @@ public class Duck implements Cloneable, Bird {
 
         Duck duck = (Duck) o;
 
-        return duckId == duck.duckId;
+        return duckId.equals(duck.duckId);
     }
 
     @Override
     public int hashCode() {
-        return (int) (duckId.get() ^ (duckId.get() >>> 32));
-    } //shift operation ' ' by overly large constant value
+        return duckId.get() ^ (duckId.get() >>> 32);
+    } //shift operation '>>>' by overly large constant value
 
     private Duck(AtomicInteger duckId) {
         this.duckId = duckId;
