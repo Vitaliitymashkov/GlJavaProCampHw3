@@ -1,13 +1,10 @@
-# GlobalLogic Java ProCamp 
-![GlobalLogic Education](assets/gl-education.png)
+# DDDSampleDuck
+This is the homework #3 - DDD Sample Duck app. 
 
-## How to submit a solution
-1. Create a separate unique folder inside this repository
-2. Put your solution into this folder
-3. Create a separate Git branch for your task solution
-4. Commit and push your solution to GitHub
-5. Create a pull request from your created branch to the `master` branch
-6. After the review, your solution will be merged into the `master`
 
-Mentor sync up table
-https://docs.google.com/spreadsheets/d/1yuHK5vFGjfa2oh3vfmXmyMC8L_TPvquy6xObl10TD_M/edit#gid=0
+The application uses Spring Boot. To start it go to the root directory and type `mvn spring-boot:run` or run the `main` method of the `Application` class from your IDE.  
+Then open http://localhost:8080/dddsampleduck in your browser (and make sure, that no firewall is blocking the communication).
+
+Discussion group: https://groups.google.com/forum/#!forum/dddsample
+
+Development blog: https://citerus.github.io/dddsample-core/

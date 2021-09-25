@@ -1,0 +1,36 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Duck Administration</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/admin.css}"/>
+</head>
+
+<body>
+<div id="outer">
+    <div th:replace="adminDecorator :: adminbody"/>
+    <div id="body">
+        <table border="1" width="600">
+            <caption>All ducks</caption>
+            <thead>
+            <tr>
+                <td>Duck ID</td>
+                <td>Name</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="duck : ${duckList}">
+                <td>
+                    <a th:href="@{/admin/show(duckId=${duck.duckId})}"
+                       th:text="${duck.duckId}">Duck id</a>
+                </td>
+                <td th:text="${duck.name}">Name</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+</body>
+</html>
